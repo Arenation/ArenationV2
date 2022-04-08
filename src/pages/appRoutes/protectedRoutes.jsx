@@ -2,7 +2,7 @@ import React from 'react';
 import { Navigate, Outlet } from "react-router-dom";
 
 const useAuth = ({ redirectPath = "/", requiredRole, children}) => {
-    const role = "VISITOR"
+    let role="VISITOR";
     const existToken = "SI"
 
     if(!existToken){

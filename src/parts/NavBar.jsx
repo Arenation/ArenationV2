@@ -5,7 +5,7 @@ import logo from "../assets/images/navbar/logo.svg";
 import userIcon from "../assets/images/navbar/user_icon.svg";
 const NavBar = () => {
     return (
-        <>
+        <div style={{ width: "100vw", height:"100vh", overflow:"hidden" }}>
             <div className="nav-wrapper">
                 <div className="nav-flex-container">
                     <div className="nav-logo-wrapper">
@@ -19,11 +19,11 @@ const NavBar = () => {
                     </div>
                 </div>
             </div>
-            <div>
-                {/* Aqui se va a renderizar lo l children */}
+            <div style={{ marginTop: "3.4rem"}}>
+                {/* Aqui se va a renderizar el children */}
                 <Outlet />
             </div>
-        </>
+        </div>
     );
 };
 
