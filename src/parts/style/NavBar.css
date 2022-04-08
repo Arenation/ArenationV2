@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+:root {
+    --primary-500: #1045ff;
+    --primary-300: #217dff;
+    --primary-100: #33b0ff;
+    --secondary-dark: #070928;
+    --secondary-light: #f8f8fa;
+    --secondary-white: white;
+    --placeholder-color: #9ca3af;
+    --danger: #f16063;
+    --success: #66cb9f;
+    --warning: #ffb020;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 700;
+    line-height: 1;
+    padding: 1em 1.5em;
+    outline: none;
+    cursor: pointer;
+}
+
+.nav-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 0.4em 3em;
+}
+
+.nav-flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-options-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.outline-button {
+    background-color: transparent;
+    border: 2px var(--primary-500) solid;
+    border-radius: 0.5em;
+    color: var(--primary-500);
+}
+
+.user-badge {
+    padding: 0.5em;
+    background-color: var(--secondary-light);
+    margin-left: 0.5em;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    .nav-wrapper {
+        padding: 0.4em 1em;
+    }
+
+    button {
+        padding: 0.66em 1em;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .user-badge {
+        padding: 0.25em;
+        margin-left: 0.5em;
+        border-radius: 0.5em;
+        cursor: pointer;
+    }
+
+    #nav-logo {
+        width: 75%;
+    }
+}
