@@ -32,8 +32,10 @@ const Home = () => {
         setSportSelected(event.target.value);
     };
 
-    return (<>
-        <div className="body_header">
+    return (<div style={{display: 'flex', flexDirection: 'column', overflow: "scroll"}}>
+        <div 
+            style={{width:"100%", height: "100vh"}}
+            className="body_header">
             <h1 style={{ 
                     width: "40%", 
                     textAlign: "center",
@@ -91,11 +93,13 @@ const Home = () => {
                 Ver todos los escenarios
             </button>
         </div>
-        <div className="body_header">
+        <div  
+            style={{width:"100%"}}
+            className="body_header">
             <h1>body</h1>
         </div>
         <div className="body_header">Footer</div>
-    </>);
+    </div>);
 };
 
 export default Home;
