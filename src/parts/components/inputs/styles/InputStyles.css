@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+:root {
+    --primary-500: #1045ff;
+    --primary-300: #217dff;
+    --primary-100: #33b0ff;
+    --secondary-dark: #070928;
+    --secondary-light: #f8f8fa;
+    --secondary-white: white;
+    --placeholder-color: #9ca3af;
+    --danger: #f16063;
+    --success: #66cb9f;
+    --warning: #ffb020;
+}
+
+* {
+    font-family: "Noto Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.input_wrapper {
+    background-color: var(--secondary-light);
+    margin: 0.5em 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0.7em;
+    border-radius: 0.75em;
+}
+
+.input_wrapper > label {
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.input_wrapper > input {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    padding: 0.2em 0;
+}
+
+hr {
+    border: solid 1px var(--secondary-light);
+    margin: 1em 0;
+}

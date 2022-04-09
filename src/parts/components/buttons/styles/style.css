@@ -1,0 +1,31 @@
+:root {
+    --primary-500: #1045ff;
+    --primary-300: #217dff;
+    --primary-100: #33b0ff;
+    --secondary-dark: #070928;
+    --secondary-light: #f8f8fa;
+    --secondary-white: white;
+    --placeholder-color: #9ca3af;
+    --danger: #f16063;
+    --success: #66cb9f;
+    --warning: #ffb020;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.solid-button {
+    outline: none;
+    border: none;
+    margin: 1em 0;
+    padding: 1.2em 0;
+    font-weight: 600;
+    color: white;
+    background-color: var(--primary-500);
+    border-radius: 0.75em;
+    cursor: pointer;
+    width: 100%;
+}
