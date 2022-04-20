@@ -65,7 +65,11 @@ const SignForm = () => {
     const [password, setPassword] = useState("");
     const handleEmailChange = (event) => setEmail(event.target.value);
     const handlePasswordChange = (event) => setPassword(event.target.value);
-
+    const handleLogClick = () => {
+        fetch("http://127.0.0.1:8000/user/" + password + "/" + email)
+            .then((response) => response.json())
+            .then((data) => console.log(data));
+    };
     return (
         <div className="sign-modal">
             <h2>Ingresar</h2>
@@ -87,7 +91,7 @@ const SignForm = () => {
                 value={password}
                 onChange={handlePasswordChange}
             />
-            <SolidButton text="Continuar" />
+            <SolidButton text="Continuar" handleClick={handleLogClick} />
         </div>
     );
 };

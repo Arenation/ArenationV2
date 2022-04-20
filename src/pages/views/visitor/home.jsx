@@ -26,27 +26,33 @@ const Home = () => {
         setSportSelected(event.target.value);
     };
 
+    const selectStyle = {};
     return (
         <>
             <div className="body_header">
-                <h1
-                    style={{
-                        width: "40%",
-                        textAlign: "center",
-                        color: "#070928",
-                        marginBottom: "2rem",
-                    }}
-                >
+                <h1 className="copy-header">
                     Reserva escenarios deportivos cuando quieras y dónde quieras
                 </h1>
                 <div className="input-body">
-                    <div style={{ width: "100%" }}>
+                    <div className="input-wrapper">
                         <h5 className="input-body-h5">Ubicación</h5>
                         <Select
+                            fullWidth
                             className="input-body-text"
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             value={locationSelected}
+                            // renderValue={(selected) => {
+                            //     if (selected.length === 0) {
+                            //         return (
+                            //             <p className="select-placeholder">
+                            //                 Seleccionar Ubicación
+                            //             </p>
+                            //         );
+                            //     }
+
+                            //     return selected.join(", ");
+                            // }}
                             onChange={handleChangeLocation}
                         >
                             {location.map((item) => {
@@ -54,9 +60,10 @@ const Home = () => {
                             })}
                         </Select>
                     </div>
-                    <div style={{ width: "100%" }}>
+                    <div className="input-wrapper">
                         <h5 className="input-body-h5">Deporte</h5>
                         <Select
+                            fullWidth
                             className="input-body-text"
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
@@ -68,30 +75,18 @@ const Home = () => {
                             })}
                         </Select>
                     </div>
-                    <div className="input-body-button">
-                        <button>
-                            <SearchOutlinedIcon />
-                        </button>
-                    </div>
+                    <button className="input-body-button">
+                        <SearchOutlinedIcon className="search-icon" />
+                        {/* <span style={{ marginTop: 40 }}>.</span> */}
+                    </button>
                 </div>
-                <h1
-                    style={{
-                        marginTop: "3rem",
-                        width: "30%",
-                        textAlign: "center",
-                        color: "#070928",
-                    }}
-                >
+                <h3 className="copy-header">
                     ¿Aún no sabes lo que buscas? ¡No hay problema!
-                </h1>
+                </h3>
                 <button className="btn-primary">
                     Ver todos los escenarios
                 </button>
             </div>
-            <div className="body_header">
-                <h1>body</h1>
-            </div>
-            <div className="body_header">Footer</div>
         </>
     );
 };

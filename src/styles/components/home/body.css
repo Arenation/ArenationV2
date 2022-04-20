@@ -1,24 +1,55 @@
-.body_header{
+:root {
+    --primary-500: #1045ff;
+    --primary-300: #217dff;
+    --primary-100: #33b0ff;
+    --secondary-dark: #070928;
+    --secondary-light: #f8f8fa;
+    --secondary-white: white;
+    --placeholder-color: #9ca3af;
+    --danger: #f16063;
+    --success: #66cb9f;
+    --warning: #ffb020;
+}
+.body_header {
     display: flex;
     flex-direction: column;
-    background-image: url("https://noti-notisistema.netdna-ssl.com/noticias/wp-content/media/2020/06/soccer-610x389.jpg");
+    background-image: url("https://images.unsplash.com/photo-1531861184681-f2de7dd72da5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80");
     background-repeat: no-repeat;
     background-size: cover;
     align-items: center;
     justify-content: center;
+    padding: 0 2em;
 }
-
-.input-body{
+.copy-header {
+    text-align: center;
+    margin: 0.5em 0;
+    width: 60%;
+}
+.input-body {
     display: flex;
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #F8F8FA;
-    border-radius: 10px;
+    background-color: #f8f8fa;
+    border-radius: 1.5em;
     width: 50%;
+    padding: 1em;
 }
 
-.input-body-text{
-    margin-bottom: 5px;
+.input-wrapper {
+    width: 100%;
+    padding-right: 0.75em;
+}
+
+.input-body-text {
+    width: 100%;
+}
+.css-1ualgfl-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
+    border-radius: 0.75em !important;
+}
+
+/* .select-placeholder important {
+    color: var(--placeholder-color);
+} */
+
+.input-body-text {
     background-color: transparent;
     border: 0;
     padding-bottom: 5px;
@@ -29,34 +60,60 @@
     outline: none;
 }
 
-.input-body-h5{
+.input-body-h5 {
     margin-bottom: 5px;
     color: #070928;
 }
 
-.input-body-button{
+.input-body-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%;
-    margin-top: 1rem;
-    border-radius: 10px;
+    border-radius: 0.75em;
+    background-color: var(--primary-500);
+    border: none;
+    color: var(--secondary-white);
 }
 
-.input-body-button button{
+.input-body-button button {
     border: 0;
     padding: 20px;
     border-radius: 10px;
-    background-color: #1045FF;
-    color: #FFFFFF;
+    background-color: #1045ff;
+    color: #ffffff;
 }
 
-.btn-primary{
+.btn-primary {
     border: 0;
     margin-top: 1rem;
     padding: 20px;
     border-radius: 10px;
-    background-color: #1045FF;
-    color: #FFFFFF;
+    background-color: #1045ff;
+    color: #ffffff;
     font-weight: bold;
+}
+
+@media (max-width: 700px) {
+    .body_header {
+        padding: 0 1em;
+    }
+
+    .copy-header {
+        width: 100%;
+    }
+
+    .input-body {
+        width: 100%;
+        flex-direction: column;
+    }
+    .input-body-button {
+        width: 100%;
+        margin-top: 1em;
+    }
+    .input-wrapper {
+        padding-right: 0;
+    }
+    .search-icon {
+        margin: 0.4em 0;
+    }
 }
