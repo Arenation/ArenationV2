@@ -10,7 +10,7 @@ function AppRoutes() {
         <Routes>
             <Route index element={<FirstPage />} />
             <Route element={<ProtectedRoute requiredRole={"VISITOR"} />}>
-                <Route path="visitor" element={<NavBar/>}>
+                <Route path="visitor" element={<NavBar />}>
                     <Route path="home" element={<Home />} />
                 </Route>
             </Route>

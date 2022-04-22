@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from "react";
 import { Outlet } from "react-router-dom";
-import "./style/NavBar.css";
-import "./style/SignModal.css";
 import logo from "../assets/images/navbar/logo.svg";
 import userIcon from "../assets/images/navbar/user_icon.svg";
 import Box from "@mui/material/Box";
@@ -38,7 +36,7 @@ const NavBar = () => {
     };
 
     return (
-        <div style={{ width: "100%", overflow:"hidden"}}>
+        <div style={{width: "100%", overflow:"hidden"}}>
             <div className="nav-wrapper">
                 <div className="nav-flex-container">
                     <div className="nav-logo-wrapper">

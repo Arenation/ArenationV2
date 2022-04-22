@@ -15,7 +15,7 @@ const useAuth = ({ redirectPath = "/", requiredRole, children}) => {
         }else if(role === "ADMIN"){
             return <Navigate to={"/admin/home"} replace />;
         }else{
-            return <Navigate to={"/visitor/home"} replace />;
+            return <Navigate to={"/visito/home"} replace />;
         }
     }
 

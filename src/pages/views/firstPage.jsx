@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "../../styles/components/home/body.css";
+import { Col, Container, Row, Modal } from "react-bootstrap";
 import "../../styles/fontstyles/textfonts.css";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import NavBars from "../../parts/NavBars";
+import NavBar from "../../parts/NavBar";
 
 const Home = () => {
     const [locationSelected, setLocationSelected] = useState("");
@@ -29,7 +29,7 @@ const Home = () => {
 
     return (
         <>
-            <NavBars />
+            <NavBar />
             <div className="body_header">
                 <h1
                     style={{
