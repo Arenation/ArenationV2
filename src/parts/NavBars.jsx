@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import { Outlet } from "react-router-dom";
 import "./style/NavBar.css";
 import "./style/SignModal.css";
 import logo from "../assets/images/navbar/logo.svg";
@@ -76,9 +75,6 @@ const NavBar = () => {
                     </div>
                 </div>
             </div>
-            <div style={{ marginTop: "3.4rem"}}>
-                <Outlet />
-            </div>
         </div>
     );
 };
@@ -97,7 +93,6 @@ const SignForm = ({setOpenModal}) => {
     });
     
     const handleSubmitForm = async (data) => {
-
         try {
             setIsLoading(true);
             let obj = {
@@ -105,8 +100,6 @@ const SignForm = ({setOpenModal}) => {
                 email: data.email,
             };
             const Login = await LoginAuth(obj);
-
-            console.log("login: ", Login);
             if(Login.data !== false){
                 localStorage.setItem("role", Login.data.rol);
                 setOpenModal(false);
@@ -118,7 +111,6 @@ const SignForm = ({setOpenModal}) => {
         }catch (error) {
             console.log("Error: ", error)
         }
-
     }
 
     return (
@@ -183,9 +175,11 @@ const SignRegister = ({setOpenModalRegister}) => {
             if(GetUser.data === false){
                 const CreateUser = await RegisterAuth(obj);
                 if(CreateUser.data === true){
+                    localStorage.setItem("role", "VISITOR");
                     setIsLoading(false);
                     setOpenModalRegister(false);
                 }
+                setIsLoading(false);
             }else{
                 console.log("Usuario con este correo ya existe!");
                 setIsLoading(false);

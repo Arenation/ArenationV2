@@ -1,5 +1,6 @@
 .body_header{
     display: flex;
+    height: 100vh;
     flex-direction: column;
     background-image: url("https://noti-notisistema.netdna-ssl.com/noticias/wp-content/media/2020/06/soccer-610x389.jpg");
     background-repeat: no-repeat;

@@ -24,7 +24,6 @@ export function GetAllUsers(){
 }
 
 export function GetOneUser(data){
-    console.log("datos", data)
     return axios({
         method: 'POST',
         url: "http://127.0.0.1/ArenationBack/Controllers/getUser.php",

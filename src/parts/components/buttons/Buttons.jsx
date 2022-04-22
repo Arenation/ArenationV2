@@ -1,4 +1,4 @@
 import "./styles/style.css";
-export function SolidButton({ type, text}) {
-    return <button type={type} className="solid-button">{text}</button>;
+export function SolidButton({disabled, type, text}) {
+    return <button disabled={disabled} type={type} className="solid-button">{text}</button>;
 }

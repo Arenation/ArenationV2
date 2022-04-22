@@ -88,10 +88,6 @@ const Home = () => {
                     Ver todos los escenarios
                 </button>
             </div>
-            <div className="body_header">
-                <h1>body</h1>
-            </div>
-            <div className="body_header">Footer</div>
         </>
     );
 };
