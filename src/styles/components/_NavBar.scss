@@ -35,7 +35,11 @@ button {
     background-color: white;
     padding: 0.4em 3em;
 }
-
+.nav-logo-wrapper {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
 .nav-flex-container {
     display: flex;
     justify-content: space-between;
@@ -81,6 +85,9 @@ button {
         cursor: pointer;
     }
 
+    .nav-logo-wrapper {
+        width: fit-content;
+    }
     #nav-logo {
         width: 75%;
     }
