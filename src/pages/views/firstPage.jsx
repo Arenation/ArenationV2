@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Container, Row, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "../../styles/fontstyles/textfonts.css";
@@ -9,11 +9,18 @@ import MenuItem from "@mui/material/MenuItem";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import NavBar from "../../parts/NavBar";
 import { SectionSports, SectionLocal } from "./landing/landingSections";
+import Footer from "../../parts/Footer";
 
 const Home = () => {
     const navigate = useNavigate();
+    const [login, setLogin] = useState(false);
     const [locationSelected, setLocationSelected] = useState("");
     const [sportSelected, setSportSelected] = useState("");
+
+    useEffect(() => {
+        const state = localStorage.getItem("role");
+        setLogin(state);
+    }, [login]);
 
     const location = [
         "Montería",
@@ -84,14 +91,19 @@ const Home = () => {
                 <h3 className="copy-header">
                     ¿Aún no sabes lo que buscas? ¡No hay problema!
                 </h3>
-                <button className="btn-primary">
+                <button 
+                    className="btn-primary"
+                    onClick={handleClickViewAllArenas}
+                >
                     Ver todos los escenarios
                 </button>
             </div>
             <SectionSports />
             <SectionLocal />
+            <Footer login={login ? true : false}/>
         </>
     );
 };
 
 export default Home;
+

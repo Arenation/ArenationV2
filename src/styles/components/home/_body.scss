@@ -13,7 +13,7 @@
 .body_header {
     display: flex;
     flex-direction: column;
-    min-height: 100%;
+    height: 100vh;
     background: linear-gradient(
             0deg,
             rgba(255, 255, 255, 0.2),
@@ -132,4 +132,14 @@
     #second-input-label {
         margin-top: 1em;
     }
+}
+
+.body_footer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #0A142F;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
 }

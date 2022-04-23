@@ -19,13 +19,52 @@
 
 .solid-button {
     outline: none;
-    border: none;
+    border: 0.1rem solid var(--primary-500);;
     margin: 1em 0;
     padding: 1.2em 0;
     font-weight: 600;
     color: white;
+    padding: 1rem;
     background-color: var(--primary-500);
-    border-radius: 0.75em;
+    border-radius: 0.5em;
     cursor: pointer;
     width: 100%;
+}
+
+.info-button {
+    outline: none;
+    border: 0.1rem solid var(--secondary-light);
+    margin: 1em 0;
+    padding: 1.2em 0;
+    font-weight: 600;
+    color: white;
+    padding: 1rem;
+    background-color: var(--secondary-light);
+    border-radius: 0.5em;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+    &_label{
+        color: #27272E;
+        font-weight: 800;
+        margin-bottom: 0.5em;
+        cursor: pointer;
+        &_white{
+            color: #ffffff;
+        }
+        &_gray{
+            color: gray;
+        }
+    }
+    &_label_text{
+        color: #27272E;
+        font-weight: 200;
+        cursor: pointer;
+        &_white{
+            color: #ffffff;
+        }
+        &_gray{
+            color: gray;
+        }
+    }
 }

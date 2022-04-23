@@ -30,33 +30,28 @@ const Notifications = () => {
     }]
 
     return (
-        <Container fluid>
-            <Row>
-                <br/>
-                <Col>
-                    <Row><h2>Notificaciones</h2></Row>
-                    <hr/>
-                    <Row className="custom-accordion__container">
-                        {msg.map((item, index) => {
-                            return(
-                                <Accordion className="custom-accordion">
-                                    <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel1a-content"
-                                        id="panel1a-header"
-                                    >
-                                        <Typography>{item.title}</Typography>
-                                    </AccordionSummary>
-                                    <AccordionDetails>
-                                        <Typography>
-                                            {item.body}
-                                        </Typography>
-                                    </AccordionDetails>
-                                </Accordion>
-                            );
-                        })}
-                    </Row>
-                </Col>
+        <Container fluid style={{padding: "3rem"}}>
+            <Row><h2>Notificaciones</h2></Row>
+            <hr/>
+            <Row className="custom-accordion__container">
+                {msg.map((item, index) => {
+                    return(
+                        <Accordion className="custom-accordion">
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel1a-content"
+                                id="panel1a-header"
+                            >
+                                <Typography>{item.title}</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Typography>
+                                    {item.body}
+                                </Typography>
+                            </AccordionDetails>
+                        </Accordion>
+                    );
+                })}
             </Row>
         </Container>
     );

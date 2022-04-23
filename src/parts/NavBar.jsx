@@ -17,6 +17,8 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 
 const NavBar = () => {
     const navigate = useNavigate();
@@ -33,20 +35,14 @@ const NavBar = () => {
     const stringToColor = (string) => {
         let hash = 0;
         let i;
-      
-        /* eslint-disable no-bitwise */
         for (i = 0; i < string.length; i += 1) {
           hash = string.charCodeAt(i) + ((hash << 5) - hash);
         }
-      
         let color = '#';
-      
         for (i = 0; i < 3; i += 1) {
           const value = (hash >> (i * 8)) & 0xff;
           color += `00${value.toString(16)}`.slice(-2);
-        }
-        /* eslint-enable no-bitwise */
-      
+        }      
         return color;
     }
 
@@ -86,6 +82,11 @@ const NavBar = () => {
         setAnchorEl(null);
     }
 
+    const handleMyAccount = () => {
+        navigate("/visitor/myAccount");
+        setAnchorEl(null);
+    }
+
     const boxStyle = {
         position: "absolute",
         top: "50%",
@@ -100,7 +101,7 @@ const NavBar = () => {
     };
 
     return (
-        <div style={{ width: "100%", overflow: "hidden" }}>
+        <div style={{ width: "100%", overflow: "hidden", zIndex: 100 }}>
             <div className="nav-wrapper">
                 <div className="nav-flex-container">
                     <div className="nav-logo-wrapper">
@@ -162,6 +163,7 @@ const NavBar = () => {
                                     <MenuItem onClick={handleStart}>Inicio</MenuItem>
                                     <MenuItem onClick={handleFavorites}>Mis favoritos</MenuItem>
                                     <MenuItem onClick={handleNotifications}>Notificaciones</MenuItem>
+                                    <MenuItem onClick={handleMyAccount}>Mi cuenta</MenuItem>
                                     <MenuItem onClick={handleLogout}>Cerrar sesión</MenuItem>
                                 </Menu>
                             </Col>
@@ -169,9 +171,6 @@ const NavBar = () => {
                         )}
                     </div>
                 </div>
-            </div>
-            <div style={{ marginTop: "3.4rem" }}>
-                <Outlet />
             </div>
         </div>
     );
@@ -202,10 +201,9 @@ const SignForm = ({ setOpenModal }) => {
                 email: data.email,
             };
             const Login = await LoginAuth(obj);
-
-            console.log("login: ", Login);
             if (Login.data !== false) {
                 localStorage.setItem("role", Login.data.rol);
+                localStorage.setItem("id-user", Login.data.id);
                 localStorage.setItem("name-user", Login.data.names + " " + Login.data.lastnames);
                 setOpenModal(false);
                 setIsLoading(false);
