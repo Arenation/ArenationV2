@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Col, Container, Row, Modal } from "react-bootstrap";
 import "../../styles/fontstyles/textfonts.css";
+import "../../styles/main.scss";
 import Select from "@mui/material/Select";
+import OutlinedInput from "@mui/material/OutlinedInput";
 import MenuItem from "@mui/material/MenuItem";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import NavBar from "../../parts/NavBar";
+import { SectionSports, SectionLocal } from "./landing/landingSections";
 
 const Home = () => {
     const [locationSelected, setLocationSelected] = useState("");
@@ -31,24 +34,19 @@ const Home = () => {
         <>
             <NavBar />
             <div className="body_header">
-                <h1
-                    style={{
-                        width: "40%",
-                        textAlign: "center",
-                        color: "#070928",
-                        marginBottom: "2rem",
-                    }}
-                >
+                <h1 className="copy-header">
                     Reserva escenarios deportivos cuando quieras y dónde quieras
                 </h1>
                 <div className="input-body">
-                    <div style={{ width: "100%" }}>
+                    <div className="input-wrapper">
                         <h5 className="input-body-h5">Ubicación</h5>
                         <Select
+                            fullWidth
                             className="input-body-text"
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             value={locationSelected}
+                            input={<OutlinedInput value="Ubicación" />}
                             onChange={handleChangeLocation}
                         >
                             {location.map((item) => {
@@ -56,9 +54,12 @@ const Home = () => {
                             })}
                         </Select>
                     </div>
-                    <div style={{ width: "100%" }}>
-                        <h5 className="input-body-h5">Deporte</h5>
+                    <div className="input-wrapper">
+                        <h5 className="input-body-h5" id="second-input-label">
+                            Deporte
+                        </h5>
                         <Select
+                            fullWidth
                             className="input-body-text"
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
@@ -70,26 +71,19 @@ const Home = () => {
                             })}
                         </Select>
                     </div>
-                    <div className="input-body-button">
-                        <button>
-                            <SearchOutlinedIcon />
-                        </button>
-                    </div>
+                    <button className="input-body-button">
+                        <SearchOutlinedIcon className="search-icon" />
+                    </button>
                 </div>
-                <h1
-                    style={{
-                        marginTop: "3rem",
-                        width: "30%",
-                        textAlign: "center",
-                        color: "#070928",
-                    }}
-                >
+                <h3 className="copy-header">
                     ¿Aún no sabes lo que buscas? ¡No hay problema!
-                </h1>
+                </h3>
                 <button className="btn-primary">
                     Ver todos los escenarios
                 </button>
             </div>
+            <SectionSports />
+            <SectionLocal />
         </>
     );
 };

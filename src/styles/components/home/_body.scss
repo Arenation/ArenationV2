@@ -12,18 +12,24 @@
 }
 .body_header {
     display: flex;
-    height: 100vh;
     flex-direction: column;
-    background-image: url("https://images.unsplash.com/photo-1531861184681-f2de7dd72da5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80");
-    background-repeat: no-repeat;
+    min-height: 100%;
+    background: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.2),
+            rgba(255, 255, 255, 0.2)
+        ),
+        url("https://images.unsplash.com/photo-1531861184681-f2de7dd72da5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80");
     background-size: cover;
+    // background-image: ;
+    background-repeat: no-repeat;
     align-items: center;
     justify-content: center;
-    padding: 0 2em;
+    padding: 2em;
 }
 .copy-header {
     text-align: center;
-    margin: 0.5em 0;
+    margin: 1em 0;
     width: 60%;
 }
 .input-body {
@@ -46,9 +52,9 @@
     border-radius: 0.75em !important;
 }
 
-/* .select-placeholder important {
-    color: var(--placeholder-color);
-} */
+.MuiOutlinedInput-notchedOutline {
+    border: none !important;
+}
 
 .input-body-text {
     background-color: transparent;
@@ -94,11 +100,17 @@
     font-weight: bold;
 }
 
-@media (max-width: 700px) {
-    .body_header {
-        padding: 0 1em;
+@media (max-width: 900px) {
+    .copy-header {
+        width: 100%;
     }
 
+    .input-body {
+        width: 90%;
+    }
+}
+
+@media (max-width: 700px) {
     .copy-header {
         width: 100%;
     }
@@ -116,5 +128,8 @@
     }
     .search-icon {
         margin: 0.4em 0;
+    }
+    #second-input-label {
+        margin-top: 1em;
     }
 }
