@@ -44,3 +44,26 @@ hr {
     border: solid 1px var(--secondary-light);
     margin: 1em 0;
 }
+
+.custom-accordion {
+    border-radius: 0.8rem !important;
+    box-shadow: rgb(0 0 0 / 5%) 4px 4px 25px 3px !important;
+    margin: 1% 0% !important;
+  
+    &__import-numeral {
+      border-radius: 0.8rem !important;
+      box-shadow: rgb(0 0 0 / 5%) 4px 4px 25px 3px !important;
+      margin: 0.5% 0% !important;
+    }
+  
+    &__container {
+      overflow-y: scroll;
+      height: 100%;
+      height: calc(100vh - 20rem);
+    }
+    &__container__small {
+      overflow-y: scroll;
+      height: 100%;
+      max-height: calc(100vh - 50rem);
+    }
+  }

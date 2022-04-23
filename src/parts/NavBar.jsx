@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
+import { Col, Container, Row } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
 import logo from "../assets/images/navbar/logo.svg";
+import { useNavigate } from "react-router-dom";
 import userIcon from "../assets/images/navbar/user_icon.svg";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -11,16 +13,78 @@ import * as yup from 'yup';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import CircularProgress from '@mui/material/CircularProgress';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 const NavBar = () => {
+    const navigate = useNavigate();
     const [openModal, setOpenModal] = useState(false);
     const [openModalRegister, setOpenModalRegister] = useState(false);
+    const [anchorEl, setAnchorEl] = useState(null); 
+    const openMenu = Boolean(anchorEl);
+    const name = localStorage.getItem("name-user");
     const handleOpenSignModal = () => setOpenModal(true);
     const handleCloseSignModal = () => setOpenModal(false);
     const handleOpenSignRegisterModal = () => setOpenModalRegister(true);
     const handleCloseSignRegisterModal = () => setOpenModalRegister(false);
 
+    const stringToColor = (string) => {
+        let hash = 0;
+        let i;
+      
+        /* eslint-disable no-bitwise */
+        for (i = 0; i < string.length; i += 1) {
+          hash = string.charCodeAt(i) + ((hash << 5) - hash);
+        }
+      
+        let color = '#';
+      
+        for (i = 0; i < 3; i += 1) {
+          const value = (hash >> (i * 8)) & 0xff;
+          color += `00${value.toString(16)}`.slice(-2);
+        }
+        /* eslint-enable no-bitwise */
+      
+        return color;
+    }
+
+    const stringAvatar = (name) => {
+        return {
+          sx: {
+            bgcolor: stringToColor(name),
+          },
+          children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+        };
+    }
+
     const role = localStorage.getItem("role");
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate("/");
+        setAnchorEl(null);
+    }
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleNotifications = () => {
+        navigate("/visitor/notifications");
+        setAnchorEl(null);
+    }
+    const handleFavorites = () => {
+        navigate("/visitor/home");
+        setAnchorEl(null);
+    }
+
+    const handleStart = () => {
+        navigate("/");
+        setAnchorEl(null);
+    }
 
     const boxStyle = {
         position: "absolute",
@@ -60,7 +124,9 @@ const NavBar = () => {
                         </>)}                            
                         <Modal open={openModal} onClose={handleCloseSignModal}>
                             <Box sx={boxStyle}>
-                                <SignForm setOpenModal={setOpenModal}/>
+                                <SignForm 
+                                    setOpenModal={setOpenModal}
+                                />
                             </Box>
                         </Modal>
                         <Modal open={openModalRegister} onClose={handleCloseSignRegisterModal}>
@@ -68,9 +134,32 @@ const NavBar = () => {
                                 <SignRegister setOpenModalRegister={setOpenModalRegister}/>
                             </Box>
                         </Modal>
-                        <div className="user-badge">
-                            <img src={userIcon} alt="user icon" />
-                        </div>
+                        {role &&(
+                        <Row>
+                            <Col xs={"auto"} style={{alignSelf: "center"}}>
+                                {name.toUpperCase()}
+                            </Col>
+                            <Col>
+                                <Stack onClick={handleClick} direction="row" spacing={2}>
+                                    <Avatar {...stringAvatar(name.toUpperCase())} />
+                                </Stack>
+                                <Menu
+                                    id="basic-menu"
+                                    anchorEl={anchorEl}
+                                    open={openMenu}
+                                    onClose={handleClose}
+                                    MenuListProps={{
+                                    'aria-labelledby': 'basic-button',
+                                    }}
+                                >
+                                    <MenuItem onClick={handleStart}>Inicio</MenuItem>
+                                    <MenuItem onClick={handleFavorites}>Mis favoritos</MenuItem>
+                                    <MenuItem onClick={handleNotifications}>Notificaciones</MenuItem>
+                                    <MenuItem onClick={handleLogout}>Cerrar sesión</MenuItem>
+                                </Menu>
+                            </Col>
+                        </Row>
+                        )}
                     </div>
                 </div>
             </div>
@@ -107,6 +196,7 @@ const SignForm = ({setOpenModal}) => {
             console.log("login: ", Login);
             if(Login.data !== false){
                 localStorage.setItem("role", Login.data.rol);
+                localStorage.setItem("name-user", Login.data.names + " " + Login.data.lastnames);
                 setOpenModal(false);
                 setIsLoading(false);
             }else{

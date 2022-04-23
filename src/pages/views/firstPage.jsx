@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Col, Container, Row, Modal } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import "../../styles/fontstyles/textfonts.css";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
@@ -7,6 +8,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import NavBar from "../../parts/NavBar";
 
 const Home = () => {
+    const navigate = useNavigate();
     const [locationSelected, setLocationSelected] = useState("");
     const [sportSelected, setSportSelected] = useState("");
 
@@ -26,6 +28,10 @@ const Home = () => {
     const handleChangeSport = (event) => {
         setSportSelected(event.target.value);
     };
+
+    const handleClickViewAllArenas = () => {
+        navigate("/visitor/home");
+    }
 
     return (
         <>
@@ -86,7 +92,7 @@ const Home = () => {
                 >
                     ¿Aún no sabes lo que buscas? ¡No hay problema!
                 </h1>
-                <button className="btn-primary">
+                <button className="btn-primary" onClick={handleClickViewAllArenas}>
                     Ver todos los escenarios
                 </button>
             </div>
