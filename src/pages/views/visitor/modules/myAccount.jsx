@@ -149,14 +149,20 @@ const MyAccount = () => {
                 </Modal.Body>
                 <Modal.Footer>
                     <Col>
-                        <SolidButton
+                        <button
+                            style={{ 
+                                marginRight: "10px",
+                                width: "100%"
+                            }}
                             onClick={() => {
                                 setOpenModalInformation(false);
                                 setValue("names", "");
                                 setValue("lastnames", "");}
                             }
-                            text={"Cancelar"}
-                        />
+                            className="outline-button"
+                        >
+                            Cancelar
+                        </button>
                     </Col>
                     <Col>
                         <SolidButton
@@ -179,7 +185,7 @@ const MyAccount = () => {
                 <form onSubmit={handleSubmit(handleChangePassword)}>
                 <Modal.Header closeButton>
                     <Modal.Title className="label-title">
-                       Información personal 
+                       Seguridad 
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -209,10 +215,16 @@ const MyAccount = () => {
                 </Modal.Body>
                 <Modal.Footer>
                     <Col>
-                        <SolidButton
-                            onClick={() => setOpenModalInformation(false)}
-                            text={"Descartar cambios"}
-                        />
+                        <button
+                            style={{ 
+                                marginRight: "10px",
+                                width: "100%"
+                            }}
+                            onClick={() => setOpenModalSecurity(false)}
+                            className="outline-button"
+                        >
+                            Descartar cambios
+                        </button>
                     </Col>
                     <Col>
                         <SolidButton
