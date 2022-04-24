@@ -38,6 +38,7 @@ const MyAccount = () => {
         if(data.names || data.lastNames){
             setIsLoading(true);
             const id = localStorage.getItem('id-user');
+            console.log(user, id);
             try{
                 let obj = {
                     id: id,
@@ -50,6 +51,7 @@ const MyAccount = () => {
                     setValue("lastnames", "");
                     localStorage.setItem('name-user', user.names+' '+user.lastnames);
                     setOpenModalInformation(false);
+                    console.log(result)
                 }
                 setIsLoading(false);
             }catch(error){
@@ -87,8 +89,9 @@ const MyAccount = () => {
     useEffect(() => {
         const fetchData = async () => {
             try{
+                const id = localStorage.getItem('id-user');
                 let obj = {
-                    id: 3,
+                    id: id ,
                     email: ""
                 }
                 const response = await GetOneUser(obj);
