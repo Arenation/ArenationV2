@@ -1,5 +1,21 @@
 import axios from "axios";
 
+export function ChangePassword(data){
+    return axios({
+        method: 'POST',
+        url: "http://127.0.0.1/ArenationBack/Controllers/changePassword.php",
+        data: JSON.stringify(data)
+    });
+}
+
+export function UpdateUser(data){
+    return axios({
+        method: 'POST',
+        url: "http://127.0.0.1/ArenationBack/Controllers/updateUser.php",
+        data: JSON.stringify(data)
+    });
+}
+
 export function RegisterAuth(data){
     return axios({
         method: 'POST',

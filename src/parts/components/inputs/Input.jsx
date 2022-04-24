@@ -55,6 +55,7 @@ export function InputText({
     name,
     placeholder,
     value,
+    defaultValue,
     onChange,
 }) {
     return (
@@ -65,6 +66,7 @@ export function InputText({
                 required={isRequired}
                 name={name}
                 placeholder={placeholder}
+                defaultValue={defaultValue}
                 value={value}
                 onChange={onChange}
             />
